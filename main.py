@@ -29,7 +29,17 @@ def main():
                 pos = pygame.mouse.get_pos()
                 #row,col = get_row_col_from_mouse(pos)
                 #game.select(row,col)
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    backg.shoot()
 
+        pressed = pygame.key.get_pressed()
+        if pressed[pygame.K_LEFT]:
+            backg.move_(-12)
+        elif pressed[pygame.K_RIGHT]:
+            backg.move_(12)
+        else: 
+            backg.move_(0)
         backg.update()
 
     pygame.quit()
